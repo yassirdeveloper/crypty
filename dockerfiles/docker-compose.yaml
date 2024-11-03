@@ -1,0 +1,34 @@
+services:
+  postgres:
+    image: postgres:latest
+    restart: always
+    environment:
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_PORT=${POSTGRES_PORT}
+
+  django:
+    build:
+      context: ./../backend/
+      dockerfile: ./Dockerfile
+    restart: always
+    ports:
+      - ${DJANGO_PORT}:${DJANGO_PORT}
+    environment:
+      - DJANGO_PORT=${DJANGO_PORT}
+    depends_on:
+      - postgres
+
+  react:
+    build:
+      context: ./../frontend/
+      dockerfile: ./Dockerfile
+      args:
+        - REACT_PORT=${REACT_PORT}
+    restart: always
+    command: npm start
+    ports:
+      - ${REACT_PORT}:${REACT_PORT}
+    environment:
+      - REACT_PORT=${REACT_PORT}
