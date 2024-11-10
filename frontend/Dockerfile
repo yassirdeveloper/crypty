@@ -1,10 +1,14 @@
 FROM node:lts as builder
 ARG REACT_PORT
 
-WORKDIR ./
+WORKDIR .
+
+COPY package.json .
+
+RUN npm install
 
 COPY . .
 
-RUN npm start
-
 EXPOSE $REACT_PORT
+
+CMD ["npm", "start"]

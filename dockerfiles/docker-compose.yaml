@@ -27,7 +27,6 @@ services:
       args:
         - REACT_PORT=${REACT_PORT}
     restart: always
-    command: npm start
     ports:
       - ${REACT_PORT}:${REACT_PORT}
     environment:

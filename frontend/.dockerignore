@@ -1,0 +1,27 @@
+# Exclude Node.js modules
+node_modules
+
+# Exclude build output
+build
+dist
+
+# Exclude any local development files
+.env
+*.log
+
+# Exclude version control files
+.git
+.gitignore
+.gitattributes
+
+# Exclude any editor/IDE specific files
+.idea
+.vscode
+*.swp
+
+# Exclude npm debug log
+npm-debug.log
+
+# Exclude Docker specific files
+.dockerignore
+Dockerfile

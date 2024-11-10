@@ -1,0 +1,33 @@
+# Exclude Python bytecode files
+__pycache__
+*.pyc
+
+# Exclude Django specific files
+db.sqlite3
+*.pyc
+*.pyo
+*.pyd
+
+# Exclude development files
+*.log
+*.pot
+*.pyc
+local_settings.py
+
+# Exclude virtual environment
+venv/
+env/
+
+# Exclude static files generated during development
+static/
+
+# Exclude media files
+media/
+
+# Exclude IDE specific files
+.vscode/
+.idea/
+
+# Exclude Docker specific files
+.dockerignore
+Dockerfile
